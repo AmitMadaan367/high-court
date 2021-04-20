@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>High Court</title>
+<style>
+body {
+    background: #1453a659;
+	font-family: 'Poppins', sans-serif;
+	}
+	.logo_image {
+    width: 640px;
+    float: none;
+    margin: auto;
+}
+.logo_image img {
+    width: 100%;
+    border-radius: 8px;
+}
+.text_area{
+width: 600px;
+    float: none;
+    margin: auto;
+    background-color: #fff;
+    border-top: 10px solid #1453A6;
+    border-radius: 8px;
+    padding: 20px 20px 25px 20px;
+    margin-top: 10px;
+}
+.text_area h1 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 28px;
+}
+.text_area h2 {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 5px 0px 10px 0px;
+}
+.text_area h3 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 5px 0px 0px 0px;
+}
+.form_control {
+    width: 640px;
+    float: none;
+    margin: auto;
+    padding: 0;
+    margin-top: 10px;
+}
+.form_control div {
+     background-color: #fff;
+    border-top: 10px solid #1453A6;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 40px 20px;
+    display: grid;
+	    border-left: 1px solid #dadce0;
+    border-right: 1px solid #dadce0;
+    border-bottom: 1px solid #dadce0;
+}
+.form_control label {
+    margin-bottom: 12px;
+}
+.form_control select,
+.form_control input{
+font-family: 'Poppins', sans-serif;
+}
+.form_control select {
+    border-radius: 4px;
+    height: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: rgba(0,0,0,0.54);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    line-height: 20px;
+    padding-right: 8px;
+    width: 235px;
+    padding-left: 8px;
+    border: 1px #ccc solid;
+}
+.form_control input:focus-visible {
+    border-bottom: 1px #ccc solid;
+    outline-width: 0;
+	transition: .5s;
+}
+.form_control input {
+    height: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: rgba(0,0,0,0.54);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    line-height: 20px;
+    padding-right: 8px;
+    width: 300px;
+    padding-left: 8px;
+    border-bottom: 1px #ccc solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+.form_control input:focus-visible {
+    border-bottom: 1px #1453A6 solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    outline-width: 0;
+	transition: .5s;
+}
+.form_control .Status_of_Reply {
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+}
+.form_control .Status_of_Reply label {
+    font-size: 14px;
+    position: relative;
+    top: -1px;
+}
+.form_control .Status_of_Reply .check {
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    border-radius: 0;
+	    margin-top: 0;
+}
+.form_control .Status_of_Reply input {
+    width: 30px;
+    margin-left: 0;
+    margin-top: 0;
+	margin-bottom: 20px;
+}
+.form_control button {
+    font-family: 'Poppins', sans-serif;
+    background: #1453a6;
+    border: 1px #1453a6 solid;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.form_control button:hover {
+    background: #0a418a;
+    border: 1px #0a418a solid;
+    color: #fff;
+    transition: .3s;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+	<div class="logo_image">
+		<img src="/static/images/cm.jpeg" alt="cm">
+	</div>
+
+	<div class="text_area">
+		<h1>Entry Form</h1>
+		<h2>Case Management System</h2>
+		<h3>The name and photo associated with your Google account will be recorded when you upload files and submit this form.
+		</h3>
+	</div>
+
+	<div class="form_control">
+		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<div class="case_type">
+				<label >Case Type *</label>
+				<select id="case_type" name="item_id">
+			  		<option value=" ">Select...</option>
+			  		{% for entry in alldata %}
+				    <option value="{{entry}}">{{entry}}</option>
+					{% endfor %}
+				</select>
+			</div>
+			<div class="case_type">
+				<label >Case_Number *</label>
+				<input type="text" name="Case_Number">
+			</div>
+
+			<div class="year">
+				<label >Year</label>
+			  		<select name="Years_id">
+					<option value=" ">Select...</option>
+				{% for year in Years %}
+				    <option value="{{year}}">{{year}}</option>
+				{% endfor %}
+				</select>
+			</div>
+
+			<div class="Internel_Category">
+				<label >Internel Category</label>
+				<select name="category_id">
+						<option value=" ">Select...</option>
+					{% for category in InternelCategory %}
+					    <option value="{{category}}">{{category}}</option>
+					{% endfor %}
+			  		
+				</select>
+			</div>
+
+			<div class="Internal_Category_Custom">
+				<label >Internal Category Custom *</label>
+				<input type="text" name="Internal_Category_Custom">
+			</div>
+
+			<div class="Department">
+				<label >Department</label>
+				<select name="alldprts_id">
+					<option value=" ">Select...</option>
+					{% for values in alldprts %}
+					    <option value="{{values}}">{{values}}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="Commissions">
+				<label >Commissions</label>
+				<select name="Commission_id">
+					<option value=" ">Select...</option>
+					{% for valuesCommission_ in Commission_ %}
+					    <option value="{{valuesCommission_}}">{{valuesCommission_}}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="Constitutional_Bodies">
+				<label >Constitutional Bodies</label>
+				<select name="Boardsand_id">
+					<option value=" ">Select...</option>
+					{% for valuesBoardsand in Boardsand %}
+					    <option value="{{valuesBoardsand}}">{{valuesBoardsand}}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="Boards_and_Corporations">
+				<label >Boards and Corporations</label>
+				<select name="Constituional_id">
+					<option value=" ">Select...</option>
+					{% for valuesConstituional in Constituional %}
+					    <option value="{{valuesConstituional}}">{{valuesConstituional}}</option>
+					{% endfor %}
+				</select>
+			</div>
+
+			<div class="Post">
+				<label >Post</label>
+				<input type="text" name="Post">
+			</div>
+
+			<div class="Advertisement">
+				<label >Advertisement No./Year</label>
+				<input type="text" name="Advertisement">
+			</div>
+
+			<div class="Cat">
+				<label >Cat.</label>
+				<input type="text" name="Cat">
+			</div>
+
+			<div class="Status_of_Reply">
+				<p>Status of Reply</p>
+				<div class="check"><input type="radio" id="Filed" name="final_status" value="Filed"><label >Filed</label></div>
+			    <div class="check"><input type="radio" id="Not_Filed" name="final_status" value="Not Filed"><label>Not Filed</label></div>
+			    <div class="check"><input type="radio" id="Prepared" name="final_status" value="Prepared"><label>Prepared</label></div>
+			    <div class="check"><input type="radio" id="Vetting_Objection" name="final_status" value="Vetting Objection"><label>Vetting Objection</label></div>
+			</div>
+
+			<div class="Copy_of_Final_Reply">
+				<label >Copy of Final Reply</label>
+				<input type="file" name="Cop_Final_Reply">
+			</div>
+
+			<div class="Prayer">
+				<label >Prayer</label>
+				<input type="text" name="Prayer">
+			</div>
+
+			<div class="Issue_Involved">
+				<label >Issue Involved</label>
+				<input type="text" name="Issue_Involved">
+			</div>
+
+			<div class="Law_Officer_conducting">
+				<label >Law Officer conducting similar cases</label>
+				<input type="text" name="Law_Officer_conducting">
+			</div>
+
+			<div class="Next_Date">
+				<label >Next Date</label>
+				<input type="date" name="Next_Date">
+			</div>
+
+			<div class="Last_Order_to_be_Complied">
+				<label >Last Order to be Complied</label>
+				<input id="id_docfile" type="file" name="docfile"/>
+
+			</div>
+			
+			<div class="Others">
+				<label >Others</label>
+				<input type="file" name="Others">
+			</div>
+
+           <button type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

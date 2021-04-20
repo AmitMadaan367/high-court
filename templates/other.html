@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>High Court</title>
+<style>
+body {
+    background: #1453a659;
+	font-family: 'Poppins', sans-serif;
+	}
+	.logo_image {
+    width: 640px;
+    float: none;
+    margin: auto;
+}
+.logo_image img {
+    width: 100%;
+    border-radius: 8px;
+}
+.text_area{
+width: 600px;
+    float: none;
+    margin: auto;
+    background-color: #fff;
+    border-top: 10px solid #1453A6;
+    border-radius: 8px;
+    padding: 20px 20px 25px 20px;
+    margin-top: 10px;
+}
+.text_area h1 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 28px;
+}
+.text_area h2 {
+    font-weight: 400;
+    font-size: 18px;
+    margin: 5px 0px 10px 0px;
+}
+.text_area h3 {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 5px 0px 0px 0px;
+}
+.form_control {
+    width: 640px;
+    float: none;
+    margin: auto;
+    padding: 0;
+    margin-top: 10px;
+}
+.form_control div {
+     background-color: #fff;
+    border-top: 10px solid #1453A6;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 40px 20px;
+    display: grid;
+	    border-left: 1px solid #dadce0;
+    border-right: 1px solid #dadce0;
+    border-bottom: 1px solid #dadce0;
+}
+.form_control label {
+    margin-bottom: 12px;
+}
+.form_control select,
+.form_control input{
+font-family: 'Poppins', sans-serif;
+}
+.form_control select {
+    border-radius: 4px;
+    height: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: rgba(0,0,0,0.54);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    line-height: 20px;
+    padding-right: 8px;
+    width: 235px;
+    padding-left: 8px;
+    border: 1px #ccc solid;
+}
+.form_control input:focus-visible {
+    border-bottom: 1px #ccc solid;
+    outline-width: 0;
+	transition: .5s;
+}
+.form_control input {
+    height: auto;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: rgba(0,0,0,0.54);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .2px;
+    line-height: 20px;
+    padding-right: 8px;
+    width: 300px;
+    padding-left: 8px;
+    border-bottom: 1px #ccc solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+}
+.form_control input:focus-visible {
+    border-bottom: 1px #1453A6 solid;
+    border-top: 0;
+    border-right: 0;
+    border-left: 0;
+    outline-width: 0;
+	transition: .5s;
+}
+.form_control .Status_of_Reply {
+    padding-bottom: 20px !important;
+    padding-top: 20px !important;
+}
+.form_control .Status_of_Reply label {
+    font-size: 14px;
+    position: relative;
+    top: -1px;
+}
+.form_control .Status_of_Reply .check {
+    border: 0;
+    padding: 0;
+    display: inline-block;
+    border-radius: 0;
+	    margin-top: 0;
+}
+.form_control .Status_of_Reply input {
+    width: 30px;
+    margin-left: 0;
+    margin-top: 0;
+	margin-bottom: 20px;
+}
+.form_control button {
+    font-family: 'Poppins', sans-serif;
+    background: #1453a6;
+    border: 1px #1453a6 solid;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.form_control button:hover {
+    background: #0a418a;
+    border: 1px #0a418a solid;
+    color: #fff;
+    transition: .3s;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+	<div class="logo_image">
+		<img src="/static/images/cm.jpeg" alt="cm">
+	</div>
+
+	<div class="text_area">
+		<h1>Entry Form</h1>
+		<h2>Case Management System</h2>
+		<h3>The name and photo associated with your Google account will be recorded when you upload files and submit this form.
+		</h3>
+	</div>
+
+	<div class="form_control">
+		<form action="" method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			
+			<div class="Others">
+				<label >Others</label>
+				<input type="file" name="otherfile">
+			</div>
+
+           <button type="submit" value="Submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
